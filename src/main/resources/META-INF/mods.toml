@@ -3,7 +3,7 @@ loaderVersion="[43,)" #mandatory This is typically bumped every Minecraft versio
 license="MIT License"
 [[mods]] #mandatory
 modId="letmefeedyou" #mandatory
-version="1.20.1-1.0.0" #mandatory
+version="1.19.2-1.0.0" #mandatory
 displayName="Let Me Feed You!" #mandatory
 authors="Rinko1231" #optional
 description="Players can feed each other."
@@ -18,6 +18,6 @@ configBackground="minecraft:textures/block/bricks.png"
 [[dependencies.letmefeedyou]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20.1,)"
+    versionRange="[1.19.2,)"
     ordering="NONE"
     side="BOTH"

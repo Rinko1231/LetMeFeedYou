@@ -59,7 +59,7 @@ public class LetMeFeedYou
                foodName = foodItem.getDisplayName();
             String feederName = feeder.getDisplayName().getString();
 
-            final ItemStack consumed = foodItem.finishUsingItem(targetPlayer.level(), targetPlayer);
+            final ItemStack consumed = foodItem.finishUsingItem(targetPlayer.getLevel(), targetPlayer);
 
             targetPlayer.displayClientMessage(Component.translatable("info.letmefeedyou.success", feederName ,foodName ), true);
 
