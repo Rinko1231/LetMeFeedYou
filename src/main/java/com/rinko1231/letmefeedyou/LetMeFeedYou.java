@@ -59,11 +59,10 @@ public class LetMeFeedYou
             } else
                foodName = foodItem.getDisplayName();
             String feederName = feeder.getDisplayName().getString();
-
+            final ItemStack foodItemCopy = new ItemStack(foodItem.getItem());
             final ItemStack consumed = foodItem.finishUsingItem(targetPlayer.level(), targetPlayer);
-            LivingEntityUseItemEvent.Finish finishEvent = new LivingEntityUseItemEvent.Finish(targetPlayer, foodItem, 0, consumed);
+            LivingEntityUseItemEvent.Finish finishEvent = new LivingEntityUseItemEvent.Finish(targetPlayer, foodItemCopy, 0, consumed);
             MinecraftForge.EVENT_BUS.post(finishEvent);
-
             targetPlayer.displayClientMessage(Component.translatable("info.letmefeedyou.success", feederName ,foodName ), true);
 
             if (!feeder.getAbilities().instabuild) feeder.setItemInHand(InteractionHand.MAIN_HAND, consumed);
