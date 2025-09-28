@@ -7,6 +7,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -60,6 +61,8 @@ public class LetMeFeedYou
             String feederName = feeder.getDisplayName().getString();
 
             final ItemStack consumed = foodItem.finishUsingItem(targetPlayer.level(), targetPlayer);
+            LivingEntityUseItemEvent.Finish finishEvent = new LivingEntityUseItemEvent.Finish(targetPlayer, foodItem, 0, consumed);
+            MinecraftForge.EVENT_BUS.post(finishEvent);
 
             targetPlayer.displayClientMessage(Component.translatable("info.letmefeedyou.success", feederName ,foodName ), true);
 
